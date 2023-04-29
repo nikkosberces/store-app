@@ -15,6 +15,10 @@ function Gallery() {
     fetchItems();
   }, []);
 
+  if (items === null) {
+    return <p>Fetching items...</p>;
+  }
+
   return (
     <main className="gallery">
       {items && items.map((item) => <Items key={item.id} item={item} />)}
